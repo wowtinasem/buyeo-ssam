@@ -344,17 +344,7 @@ footer{
 }
 footer .org{color:#fff;font-weight:700;font-size:14px}
 
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .w,.fx,.prompt-line{opacity:1!important;transform:none!important}
-  .lotus,.core{animation:none!important}
-  .globe{display:none}
-  .petal{opacity:var(--po)!important;transform:rotate(var(--r))!important}
-  .core{opacity:.8!important}
-  .ripple{opacity:var(--o)!important}
-  .hero h1 .glow{opacity:1!important}
-  .beam{display:none}
-}
+/* 전시용 페이지: OS '동작 줄이기' 설정과 무관하게 연출을 항상 재생합니다 */
 @media (max-width:900px){
   .hero-inner{grid-template-columns:1fr;text-align:center;gap:10px}
   .hero-sub{margin:0 auto}
@@ -672,7 +662,8 @@ render();
 /* ============================================================
    전시 연출 — 타이핑 프롬프트 · 자동 전시 모드
 ============================================================ */
-const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* 전시용 페이지: OS '동작 줄이기' 설정과 무관하게 항상 재생 (행사장 PC 대응) */
+const RM = false;
 
 /* 살아있는 프롬프트: 연수에서 실제 쓰인 요청들이 타이핑됩니다 */
 const PROMPTS = [
