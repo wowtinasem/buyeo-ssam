@@ -127,10 +127,10 @@ button{font-family:inherit;cursor:pointer}
   background:linear-gradient(180deg,rgba(205,230,255,.16) 0%,rgba(255,255,255,.03) 70%);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.28), inset 0 -8px 22px rgba(90,160,255,.08);
   border-radius:50% 50% 46% 46% / 78% 78% 24% 24%;
-  /* 반복 개화: 피어남(1.7s) → 만개 유지(약 5s) → 오므림 → 다시 개화 */
+  /* 반복 개화(5초 주기): 피어남(1s) → 만개 유지(약 3s) → 오므림 → 다시 개화 */
   --r:0deg; --d:.8s; --po:1;
   opacity:0;
-  animation:bloomLoop 8.5s ease-in-out infinite;
+  animation:bloomLoop 5s ease-in-out infinite;
   animation-delay:var(--d);
 }
 @keyframes bloomLoop{
@@ -162,7 +162,7 @@ button{font-family:inherit;cursor:pointer}
   background:radial-gradient(circle,#8CF3DF 0%,#5EEAD4 45%,rgba(94,234,212,0) 75%);
   filter:blur(1px);
   opacity:0;
-  animation:coreLoop 8.5s ease-in-out infinite;
+  animation:coreLoop 5s ease-in-out infinite;
   animation-delay:1.35s; /* 가운데 꽃잎과 함께 호흡 */
 }
 @keyframes coreLoop{
