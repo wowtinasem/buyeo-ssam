@@ -712,10 +712,13 @@ let idleTimer = null, autoTimer = null, autoOn = false, autoIdx = 0;
 
 function startAuto(){
   if (autoOn) return;
+  /* 실제 앱 주소가 연결된 작품만 자동 순환 (대기 카드는 제외) */
+  const linked = APPS.map((a, i) => a.url ? i : -1).filter(i => i >= 0);
+  if (!linked.length) return;
   autoOn = true;
   (function cycle(){
     if (!autoOn) return;
-    openPlacard(autoIdx % APPS.length);
+    openPlacard(linked[autoIdx % linked.length]);
     autoIdx++;
     autoTimer = setTimeout(() => {
       if (!autoOn) return;
