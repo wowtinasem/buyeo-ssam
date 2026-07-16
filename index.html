@@ -235,6 +235,15 @@ button{font-family:inherit;cursor:pointer}
 }
 @keyframes blink{50%{opacity:0}}
 
+/* ---------- 작품 전시 영역 배경 (히어로 남색과 이어지는 전시장 톤) ---------- */
+.works{
+  background:
+    radial-gradient(rgba(27,58,107,.055) 1px, transparent 1.4px),
+    linear-gradient(180deg,#D9E4F2 0%,#E6EDF6 55%,#F0F4FA 100%);
+  background-size:26px 26px, 100% 100%;
+  border-bottom:1px solid var(--line);
+}
+
 /* ---------- 필터 ---------- */
 .toolbar{
   max-width:1280px;margin:0 auto;
@@ -261,11 +270,12 @@ button{font-family:inherit;cursor:pointer}
 @media (max-width:1020px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.grid{grid-template-columns:1fr}}
 .card{
-  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--paper);border:1px solid #CBD7E6;border-radius:var(--radius);
   overflow:hidden;text-align:left;display:flex;flex-direction:column;
+  box-shadow:0 3px 12px rgba(18,41,78,.07);
   transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(18,41,78,.13);border-color:#B9C8DE}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(18,41,78,.16);border-color:#A8BCD6}
 .card:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .thumb{
   aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
@@ -405,7 +415,8 @@ footer .org{color:#fff;font-weight:700;font-size:14px}
   </div>
 </header>
 
-<!-- ================= 필터 ================= -->
+<!-- ================= 작품 전시 영역 ================= -->
+<section class="works">
 <div class="toolbar">
   <div class="section-title">작품 목록
     <small>작품을 선택하면 소개 카드가 열립니다</small>
@@ -417,8 +428,8 @@ footer .org{color:#fff;font-weight:700;font-size:14px}
   </div>
 </div>
 
-<!-- ================= 갤러리 ================= -->
 <main class="grid" id="grid" aria-live="polite"></main>
+</section>
 
 <!-- ================= 도록형 작품 카드 ================= -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="pTitle">
