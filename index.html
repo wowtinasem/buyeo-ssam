@@ -67,7 +67,7 @@ button{font-family:inherit;cursor:pointer}
 .hero{
   position:relative;overflow:hidden;
   background:#0E1D3A;
-  padding:70px 24px 66px;text-align:center;
+  padding:34px 24px 30px;text-align:center;
 }
 /* ---------- 무대 배경: 점 격자 + 빔 스윕 ---------- */
 .stage{position:absolute;inset:0;z-index:1;pointer-events:none}
@@ -104,14 +104,15 @@ button{font-family:inherit;cursor:pointer}
 .lotus-wrap{position:relative;display:flex;justify-content:center;align-items:flex-end}
 /* 연꽃 뒤 디지털 닷 스피어 */
 .globe{
-  position:absolute;left:50%;top:44%;
-  width:460px;height:460px;max-width:none;
+  position:absolute;left:50%;top:46%;
+  width:380px;height:380px;max-width:none;
   transform:translate(-50%,-50%);
   pointer-events:none;opacity:.9;
 }
 .lotus{z-index:1}
 .lotus{
-  position:relative;width:330px;height:315px;
+  position:relative;width:330px;height:255px;
+  --ls:.8;transform-origin:bottom center;
   animation:floatY 8s ease-in-out 2s infinite;
 }
 .lotus::before{ /* 후광 */
@@ -184,11 +185,11 @@ button{font-family:inherit;cursor:pointer}
 .r2{bottom:12px;width:300px;height:64px;--o:.5}
 .hero-eyebrow{
   display:inline-block;font-size:13px;font-weight:700;letter-spacing:.24em;
-  color:#7FB8FF;margin-bottom:14px;
+  color:#7FB8FF;margin-bottom:10px;
 }
 .hero h1{
-  font-size:clamp(28px,4.8vw,46px);font-weight:900;letter-spacing:-.015em;
-  line-height:1.3;color:#FFFFFF;margin-bottom:14px;
+  font-size:clamp(26px,4.2vw,40px);font-weight:900;letter-spacing:-.015em;
+  line-height:1.3;color:#FFFFFF;margin-bottom:10px;
   text-shadow:0 0 34px rgba(80,150,255,.30);
 }
 /* 키네틱 등장(1회) */
@@ -213,7 +214,7 @@ button{font-family:inherit;cursor:pointer}
 .hero-sub b{color:#FFFFFF;font-weight:700}
 /* 글래스 프롬프트 카드 (등장 후 미세 부유) */
 .prompt-line{
-  max-width:520px;margin:28px 0 0;
+  max-width:520px;margin:18px 0 0;
   background:rgba(255,255,255,.08);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border:1px solid rgba(160,200,255,.28);
@@ -226,7 +227,7 @@ button{font-family:inherit;cursor:pointer}
   animation:rise .6s .8s cubic-bezier(.2,.7,.3,1) both,
             floatY 6s ease-in-out 1.8s infinite;
 }
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes floatY{0%,100%{transform:translateY(0) scale(var(--ls,1))}50%{transform:translateY(-6px) scale(var(--ls,1))}}
 .prompt-line .mark{color:#5EEAD4;font-weight:900}
 .caret{
   display:inline-block;width:2px;height:1.15em;background:#7FB8FF;
@@ -236,8 +237,8 @@ button{font-family:inherit;cursor:pointer}
 
 /* ---------- 필터 ---------- */
 .toolbar{
-  max-width:1120px;margin:0 auto;
-  padding:44px 24px 4px;
+  max-width:1280px;margin:0 auto;
+  padding:24px 24px 4px;
   display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
 }
 .section-title{font-size:19px;font-weight:900;color:var(--navy);letter-spacing:-.01em}
@@ -253,10 +254,12 @@ button{font-family:inherit;cursor:pointer}
 
 /* ---------- 갤러리 ---------- */
 .grid{
-  max-width:1120px;margin:0 auto;padding:24px 24px 80px;
-  display:grid;gap:22px;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  max-width:1280px;margin:0 auto;padding:18px 24px 70px;
+  display:grid;gap:18px;
+  grid-template-columns:repeat(4,1fr);
 }
+@media (max-width:1020px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
 .card{
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
   overflow:hidden;text-align:left;display:flex;flex-direction:column;
@@ -275,8 +278,8 @@ button{font-family:inherit;cursor:pointer}
   font-size:11px;font-weight:700;letter-spacing:.1em;
   padding:4px 10px;border-radius:4px;
 }
-.label{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;gap:4px}
-.label h3{font-size:17.5px;font-weight:700;line-height:1.4;color:var(--ink)}
+.label{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:4px}
+.label h3{font-size:16px;font-weight:700;line-height:1.4;color:var(--ink)}
 .label .byline{font-size:13px;color:var(--muted)}
 .label .meta-row{margin-top:10px;display:flex;align-items:center;gap:8px}
 .chip{font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:4px}
